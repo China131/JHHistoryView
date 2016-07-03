@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "JHCusomHistory.h"
 @interface ViewController ()
 
 @end
@@ -16,6 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*        添加自定义视图         */
+    JHCusomHistory *history = [[JHCusomHistory alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 250) andItems:@[@"熊出没",@"死神来了19",@"钢铁侠0",@"海上钢琴师",@"最后一只恐龙",@"苍井空",@"假如爱有天意",@"好好先生",@"特种部队",@"生化危机",@"魔兽"] andItemClickBlock:^(NSInteger i) {
+        
+        
+        /*        相应点击事件 i为点击的索引值         */
+        
+        
+    }];
+    
+    [self.view addSubview:history];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

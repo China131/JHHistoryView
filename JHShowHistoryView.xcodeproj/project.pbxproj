@@ -15,6 +15,10 @@
 		E9F8ABA71D28AD3400A0D26A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F8ABA51D28AD3400A0D26A /* LaunchScreen.storyboard */; };
 		E9F8ABB21D28AD3400A0D26A /* JHShowHistoryViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8ABB11D28AD3400A0D26A /* JHShowHistoryViewTests.m */; };
 		E9F8ABBD1D28AD3400A0D26A /* JHShowHistoryViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8ABBC1D28AD3400A0D26A /* JHShowHistoryViewUITests.m */; };
+		E9F8ABD21D28AD6500A0D26A /* JHCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8ABCB1D28AD6500A0D26A /* JHCell.m */; };
+		E9F8ABD31D28AD6500A0D26A /* JHCusomHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8ABCD1D28AD6500A0D26A /* JHCusomHistory.m */; };
+		E9F8ABD41D28AD6500A0D26A /* JHCustomFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8ABCF1D28AD6500A0D26A /* JHCustomFlow.m */; };
+		E9F8ABD51D28AD6500A0D26A /* JHCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8ABD11D28AD6500A0D26A /* JHCustomSearchBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		E9F8ABB81D28AD3400A0D26A /* JHShowHistoryViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JHShowHistoryViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F8ABBC1D28AD3400A0D26A /* JHShowHistoryViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHShowHistoryViewUITests.m; sourceTree = "<group>"; };
 		E9F8ABBE1D28AD3400A0D26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9F8ABCA1D28AD6500A0D26A /* JHCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCell.h; sourceTree = "<group>"; };
+		E9F8ABCB1D28AD6500A0D26A /* JHCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCell.m; sourceTree = "<group>"; };
+		E9F8ABCC1D28AD6500A0D26A /* JHCusomHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCusomHistory.h; sourceTree = "<group>"; };
+		E9F8ABCD1D28AD6500A0D26A /* JHCusomHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCusomHistory.m; sourceTree = "<group>"; };
+		E9F8ABCE1D28AD6500A0D26A /* JHCustomFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCustomFlow.h; sourceTree = "<group>"; };
+		E9F8ABCF1D28AD6500A0D26A /* JHCustomFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCustomFlow.m; sourceTree = "<group>"; };
+		E9F8ABD01D28AD6500A0D26A /* JHCustomSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCustomSearchBar.h; sourceTree = "<group>"; };
+		E9F8ABD11D28AD6500A0D26A /* JHCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCustomSearchBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,14 @@
 		E9F8AB961D28AD3400A0D26A /* JHShowHistoryView */ = {
 			isa = PBXGroup;
 			children = (
+				E9F8ABCA1D28AD6500A0D26A /* JHCell.h */,
+				E9F8ABCB1D28AD6500A0D26A /* JHCell.m */,
+				E9F8ABCC1D28AD6500A0D26A /* JHCusomHistory.h */,
+				E9F8ABCD1D28AD6500A0D26A /* JHCusomHistory.m */,
+				E9F8ABCE1D28AD6500A0D26A /* JHCustomFlow.h */,
+				E9F8ABCF1D28AD6500A0D26A /* JHCustomFlow.m */,
+				E9F8ABD01D28AD6500A0D26A /* JHCustomSearchBar.h */,
+				E9F8ABD11D28AD6500A0D26A /* JHCustomSearchBar.m */,
 				E9F8AB9A1D28AD3400A0D26A /* AppDelegate.h */,
 				E9F8AB9B1D28AD3400A0D26A /* AppDelegate.m */,
 				E9F8AB9D1D28AD3400A0D26A /* ViewController.h */,
@@ -270,8 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F8ABD51D28AD6500A0D26A /* JHCustomSearchBar.m in Sources */,
+				E9F8ABD41D28AD6500A0D26A /* JHCustomFlow.m in Sources */,
 				E9F8AB9F1D28AD3400A0D26A /* ViewController.m in Sources */,
+				E9F8ABD21D28AD6500A0D26A /* JHCell.m in Sources */,
 				E9F8AB9C1D28AD3400A0D26A /* AppDelegate.m in Sources */,
+				E9F8ABD31D28AD6500A0D26A /* JHCusomHistory.m in Sources */,
 				E9F8AB991D28AD3400A0D26A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
