@@ -38,6 +38,10 @@
         //我们想设置的最大间距，可根据需要改
         NSInteger maximumSpacing                                  = 5;
 
+        if (currentLayoutAttributes.indexPath.section != prevLayoutAttributes.indexPath.section) {
+            
+            continue;
+        }
         //前一个cell的最右边
         NSInteger origin                                          = CGRectGetMaxX(prevLayoutAttributes.frame);
         //如果当前一个cell的最右边加上我们想要的间距加上当前cell的宽度依然在contentSize中，我们改变当前cell的原点位置
