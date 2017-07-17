@@ -8,6 +8,8 @@
 
 #import "JHCusomHistory.h"
 #import "JHCustomFlow.h"
+#import "JHCell.h"
+#import "JHHeader.h"
 @interface JHCusomHistory ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     UICollectionView    *_collectionView;   //流布局视图
@@ -59,7 +61,8 @@
     [self addSubview:_collectionView];
     
     /* 提前注册流布局item */
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [_collectionView registerClass:[JHCell class] forCellWithReuseIdentifier:@"cell"];
+    [_collectionView registerClass:[JHHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     
 }
 
@@ -74,7 +77,7 @@
  *  @return 自定义流布局item的个数
  */
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _dataArr.count + 1;
+    return [_dataArr[section] count];
 }
 
 
@@ -89,11 +92,11 @@
  */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == _dataArr.count) {
-        return CGSizeMake(self.frame.size.width, 40);
-    }
+//    if (indexPath.row == _dataArr.count) {
+//        return CGSizeMake(self.frame.size.width, 40);
+//    }
     
-    NSString *str      = _dataArr[indexPath.row];    
+    NSString *str      = _dataArr[indexPath.section][indexPath.row];
     /* 根据每一项的字符串确定每一项的size */
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:18]};
     CGSize size        = [str boundingRectWithSize:CGSizeMake(self.frame.size.width, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
@@ -102,6 +105,13 @@
     return size;
     
 }
+
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+//    [collectionView.collectionViewLayout invalidateLayout];
+    return _dataArr.count;
+}
+
 
 /**
  *  流布局的边界距离 上下左右
@@ -124,22 +134,25 @@
  *  @return               item视图
  */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    for (UIView *vie in cell.contentView.subviews) {
-        [vie removeFromSuperview];
-    }
-    if (indexPath.row == _dataArr.count) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
-        /* 判断最后一个item的内容 如果没有历史记录 内容就为暂无历史记录  否则为清除历史记录 */
-        label.text = (_dataArr.count==0?(@"暂无历史记录"):(@"清除历史记录"));
-        label.textAlignment = NSTextAlignmentCenter;
-        [cell.contentView addSubview:label];
-        return cell;
-    }
-    NSString *str                       = _dataArr[indexPath.row];
+    JHCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+//    for (UIView *vie in cell.contentView.subviews) {
+//        if ([vie isKindOfClass:[UILabel class]]) {
+//            [vie removeFromSuperview];
+//        }
+//    }
+//    if (indexPath.row == _dataArr.count) {
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
+//        /* 判断最后一个item的内容 如果没有历史记录 内容就为暂无历史记录  否则为清除历史记录 */
+//        label.text = (_dataArr.count==0?(@"暂无历史记录"):(@"清除历史记录"));
+//        label.textAlignment = NSTextAlignmentCenter;
+//        [cell.contentView addSubview:label];
+//        return cell;
+//    }
+    NSString *str                       = _dataArr[indexPath.section][indexPath.row];
     NSDictionary *dict                  = @{NSFontAttributeName:[UIFont systemFontOfSize:18]};
     CGSize size                         = [str boundingRectWithSize:CGSizeMake(self.frame.size.width, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
-    UILabel *label                      = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 40)];
+    UILabel *label                      =cell.textLabel;
+    label.frame = cell.bounds;
     label.text                          = str;
     label.font                          = [UIFont systemFontOfSize:18];
     cell.contentView.layer.cornerRadius = 5;
@@ -147,7 +160,7 @@
     cell.contentView.backgroundColor    = [UIColor colorWithRed:arc4random()%250/256.0 + 0.3 green:arc4random()%255/256.0+0.2  blue:arc4random()%250/255.0 + 0.1 alpha:0.7];
     label.layer.borderColor             = [UIColor whiteColor].CGColor;
     [cell.contentView addSubview:label];
-    label.center                        = cell.contentView.center;
+//    label.center                        = cell.contentView.center;
     return cell;
 }
 
@@ -164,6 +177,27 @@
     _itemClick(indexPath.row);
 }
 
+
+
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(100, 50);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
+    if (!view) {
+        view = [[UICollectionReusableView alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    }
+    view.backgroundColor = [UIColor greenColor];
+    if (kind == UICollectionElementKindSectionHeader) {
+        return view;
+    }
+    
+    return nil;
+    
+}
 
 
 

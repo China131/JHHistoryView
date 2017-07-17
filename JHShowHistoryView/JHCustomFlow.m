@@ -24,12 +24,17 @@
         
         if (i==0) {
             UICollectionViewLayoutAttributes *currentLayoutAttributes = attributes[i];
+            if (currentLayoutAttributes.representedElementKind == UICollectionElementKindSectionHeader || currentLayoutAttributes.representedElementKind == UICollectionElementKindSectionFooter) {
+                continue;
+            }
             CGRect frame                                              = currentLayoutAttributes.frame;
             frame.origin.x                                            = 10;
             currentLayoutAttributes.frame                             = frame;
             
             continue;
         }
+        
+        
         
         //当前attributes
         UICollectionViewLayoutAttributes *currentLayoutAttributes = attributes[i];
@@ -60,4 +65,7 @@
     }
     return attributes;
 }
+
+
+
 @end

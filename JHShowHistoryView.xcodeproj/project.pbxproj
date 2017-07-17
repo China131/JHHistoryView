@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D29E87C1F1C4B4600440789 /* JHHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D29E87A1F1C4B4600440789 /* JHHeader.m */; };
+		7D29E87D1F1C4B4600440789 /* JHHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D29E87B1F1C4B4600440789 /* JHHeader.xib */; };
 		E9F8AB991D28AD3400A0D26A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8AB981D28AD3400A0D26A /* main.m */; };
 		E9F8AB9C1D28AD3400A0D26A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8AB9B1D28AD3400A0D26A /* AppDelegate.m */; };
 		E9F8AB9F1D28AD3400A0D26A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F8AB9E1D28AD3400A0D26A /* ViewController.m */; };
@@ -39,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D29E8791F1C4B4600440789 /* JHHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHHeader.h; sourceTree = "<group>"; };
+		7D29E87A1F1C4B4600440789 /* JHHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHHeader.m; sourceTree = "<group>"; };
+		7D29E87B1F1C4B4600440789 /* JHHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHHeader.xib; sourceTree = "<group>"; };
 		E9F8AB941D28AD3400A0D26A /* JHShowHistoryView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHShowHistoryView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F8AB981D28AD3400A0D26A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9F8AB9A1D28AD3400A0D26A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +135,9 @@
 				E9F8ABA51D28AD3400A0D26A /* LaunchScreen.storyboard */,
 				E9F8ABA81D28AD3400A0D26A /* Info.plist */,
 				E9F8AB971D28AD3400A0D26A /* Supporting Files */,
+				7D29E8791F1C4B4600440789 /* JHHeader.h */,
+				7D29E87A1F1C4B4600440789 /* JHHeader.m */,
+				7D29E87B1F1C4B4600440789 /* JHHeader.xib */,
 			);
 			path = JHShowHistoryView;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D29E87D1F1C4B4600440789 /* JHHeader.xib in Resources */,
 				E9F8ABA71D28AD3400A0D26A /* LaunchScreen.storyboard in Resources */,
 				E9F8ABA41D28AD3400A0D26A /* Assets.xcassets in Resources */,
 				E9F8ABA21D28AD3400A0D26A /* Main.storyboard in Resources */,
@@ -290,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D29E87C1F1C4B4600440789 /* JHHeader.m in Sources */,
 				E9F8ABD51D28AD6500A0D26A /* JHCustomSearchBar.m in Sources */,
 				E9F8ABD41D28AD6500A0D26A /* JHCustomFlow.m in Sources */,
 				E9F8AB9F1D28AD3400A0D26A /* ViewController.m in Sources */,
